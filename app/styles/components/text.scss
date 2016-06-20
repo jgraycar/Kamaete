@@ -3,10 +3,17 @@ p {
 }
 
 .brand-font {
+  color: $brand-color;
   font-family: $brand-font;
   font-size: 115%;
 
   &.navbar-brand {
     font-size: 200%;
+  }
+}
+
+.page-header {
+  h1 {
+    font-weight: 600;
   }
 }

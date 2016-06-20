@@ -1,3 +1,9 @@
-$font-size-large: 20px;
-$footer-height: 60px;
 $brand-font: 'Baloo';
+$brand-color: #000070;
+$footer-height: 60px;
+$font-size-large: 20px;
+
+// Bootstrap variable overrides
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+$navbar-default-brand-color: #515190;
+$navbar-default-brand-hover-color: $brand-color;

@@ -1,0 +1,18 @@
+<ul class="list-group col-sm-6">
+  {{#each sortedMembers as |member|}}
+    <li class="list-group-item">
+      <span class="badge">14</span>
+      {{#link-to 'members'}}{{member.name}}{{/link-to}}
+    </li>
+  {{/each}}
+  <li class="list-group-item">
+    <form class="inline-form row" {{action 'createMember' on='submit'}}>
+      <div class="form-group col-xs-9">
+        <label for="name" class="sr-only">Member Name</label>
+        {{input value=name type="text" id="name" class="form-control" placeholder="New member name"}}
+      </div>
+
+      <button type="submit" class="btn btn-default">Create</button>
+    </form>
+  </li>
+</ul>

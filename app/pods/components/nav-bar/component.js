@@ -17,7 +17,8 @@ export default Ember.Component.extend({
       }).then(() => {
         let identifier = this.get('session').currentUser.identifier;
 
-        flashMessages.success(`Login successful - welcome back, ${identifier}!`, {
+        flashMessages.success(`Welcome back, ${identifier}!`, {
+          messageHeader: 'Login successful.',
           timeout: 10000
         });
       },

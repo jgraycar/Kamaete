@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   actions: {
     viewPerformance(performance) {
       // TODO: transition to show route for performance
-      this.transitionTo('performances');
+      this.transitionTo('performances.show', performance);
     }
   }
 });

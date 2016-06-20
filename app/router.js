@@ -12,6 +12,10 @@ Router.map(function() {
     this.route('show', { path: '/:performance_id' });
   });
 
+  this.route('members', function() {
+    this.route('index', { path: '/' });
+  });
+
   this.route('login');
   this.route('register');
   this.route('account-settings', { path: '/settings' });
