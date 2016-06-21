@@ -7,7 +7,7 @@
     <h3 class="media-heading">{{performance.title}}</h3>
     <p>{{performance.formattedDate}}</p>
 
-    {{#link-to 'index' class='btn btn-warning'}}Edit{{/link-to}}
+    {{#link-to 'performances.edit' performance class='btn btn-warning'}}Edit{{/link-to}}
     <button {{action "delete" bubbles=false}} class="btn btn-danger">Delete</button>
   </div>
 {{/link-to}}

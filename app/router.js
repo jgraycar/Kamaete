@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('index', { path: '/' });
     this.route('new', { path: '/new' });
     this.route('show', { path: '/:performance_id' });
+    this.route('edit', { path: '/:performance_id/edit' });
   });
 
   this.route('members', function() {

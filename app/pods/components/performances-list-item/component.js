@@ -12,8 +12,9 @@ export default Ember.Component.extend({
 
       if (confirm(`Are you sure you want to delete the performance "${title}"?` +
           ' This action cannot be undone!')) {
-        performance.destroyRecord();
-        this.get('flashMessages').success(`Performance "${title}" successfully deleted.`);
+        performance.destroyRecord().then(() => {
+          this.get('flashMessages').success(`Performance "${title}" successfully deleted.`);
+        });
       }
     }
   }

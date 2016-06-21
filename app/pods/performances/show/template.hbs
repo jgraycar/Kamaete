@@ -2,6 +2,9 @@
   <h1>{{model.title}} <small>{{model.formattedDate}}</small></h1>
 </div>
 
+{{#link-to 'performances.edit' model class='btn btn-warning'}}Edit{{/link-to}}
+<button {{action 'delete' model}} class="btn btn-danger">Delete</button>
+
 <div class="performance-details">
 </div>
 

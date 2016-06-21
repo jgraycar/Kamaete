@@ -7,14 +7,18 @@ export default Ember.Component.extend({
   actions: {
     create() {
       let date = this.get('date') ? new Date(this.get('date')) : null;
-      const performance = this.get('store').createRecord('performance', {
-        title: this.get('title'),
-        date,
-        members: this.get('selectedMembers')
-      });
+
+      var performance = this.get('performance');
+      if (!performance) {
+        performance = this.get('store').createRecord('performance', {
+          title: this.get('title'),
+          date,
+          members: this.get('selectedMembers')
+        });
+      }
 
       performance.save().then(() => {
-        this.sendAction('performanceCreated', performance);
+        this.sendAction('formSubmittedSuccessfully', performance);
       },
 
       (xhr) => {

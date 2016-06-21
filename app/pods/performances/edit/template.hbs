@@ -1,0 +1,16 @@
+<div id="new-performance-form" class="center-form">
+  <div class="form-text text-center">
+    <h1>Edit Performance</h1>
+    <p>Enter the new information for this performance.</p>
+  </div>
+
+  {{new-performance-form
+    performanceCreated='viewPerformance'
+    performance=model
+    title=model.title
+    date=model.date
+    selectedMembers=model.members
+    submitButtonText='Update Performance'
+    formSubmittedSuccessfully='viewPerformance'
+  }}
+</div>

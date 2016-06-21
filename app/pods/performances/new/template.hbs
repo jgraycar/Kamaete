@@ -4,5 +4,7 @@
     <p>Please enter the performance information below.</p>
   </div>
 
-  {{new-performance-form performanceCreated='viewPerformance' members=model}}
+  {{new-performance-form
+    formSubmittedSuccessfully='viewPerformance' members=model submitButtonText="Create Performance"
+  }}
 </div>
