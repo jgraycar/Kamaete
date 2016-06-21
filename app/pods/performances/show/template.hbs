@@ -9,7 +9,7 @@
   <h2>Performers</h2>
 
   <p>
-    {{#each model.members as |member index|}}
+    {{#each model.sortedMembers as |member|}}
       <span class="performance-member">
         {{#link-to 'members.index'}}{{member.name}}{{/link-to}}
       </span>
