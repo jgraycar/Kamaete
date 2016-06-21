@@ -1,3 +1,18 @@
 .performances-list-item {
   cursor: pointer;
 }
+
+.performance-members {
+  .performance-member:after {
+    content: ', ';
+    margin-left: -3px;
+  }
+
+  .performance-member:last-of-type:after {
+    content: '';
+  }
+
+  .performance-member:last-of-type:before {
+    content: 'and ';
+  }
+}

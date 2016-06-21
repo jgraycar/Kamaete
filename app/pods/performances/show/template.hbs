@@ -1,3 +1,20 @@
 <div class="page-header">
   <h1>{{model.title}} <small>{{model.formattedDate}}</small></h1>
 </div>
+
+<div class="performance-details">
+</div>
+
+<div class="performance-members">
+  <h2>Performers</h2>
+
+  <p>
+    {{#each model.members as |member index|}}
+      <span class="performance-member">
+        {{#link-to 'members.index'}}{{member.name}}{{/link-to}}
+      </span>
+  {{else}}
+    No performers have been assigned to this performance yet.
+  {{/each}}
+  </p>
+</div>
