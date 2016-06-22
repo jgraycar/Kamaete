@@ -6,5 +6,14 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     loginFailed() {
       this.transitionTo('login');
     }
+  },
+
+  didTransition: function() {
+    this._super(...arguments);
+
+    return ga('send', 'pageview', {
+      page: this.get('url'),
+      title: this.get('url')
+    });
   }
 });
