@@ -4,15 +4,15 @@ import config from './config/environment';
 const Router = Ember.Router.extend({
   location: config.locationType,
 
-  didTransition: function() {
-    this._super(...arguments);
-
-    // Register a page change event with Google Analytics
-    return ga('send', 'pageview', {
+  trackPageView: function() {
+    // Register a page view event with Google Analytics
+    ga('set', {
       page: this.get('url'),
       title: this.get('url')
     });
-  }
+
+    ga('send', 'pageview');
+  }.on('didTransition')
 });
 
 Router.map(function() {
