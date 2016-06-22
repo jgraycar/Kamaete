@@ -1,7 +1,9 @@
 <ul class="list-group col-sm-6">
   {{#each sortedMembers as |member|}}
     <li class="list-group-item">
-      <span class="badge">14</span>
+      {{#if member.performances}}
+        <span class="badge">{{member.performances.length}}</span>
+      {{/if}}
       {{#link-to 'members'}}{{member.name}}{{/link-to}}
     </li>
   {{/each}}

@@ -4,9 +4,9 @@
     <p>Enter the new information for this performance.</p>
   </div>
 
-  {{new-performance-form
-    performanceCreated='viewPerformance'
+  {{performance-form
     performance=model
+    members=members
     title=model.title
     date=model.date
     selectedMembers=model.members
