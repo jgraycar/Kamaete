@@ -14,7 +14,7 @@
   <p>
     {{#each model.sortedMembers as |member|}}
       <span class="performance-member">
-        {{#link-to 'members.index'}}{{member.name}}{{/link-to}}
+        {{#link-to 'members.show' member}}{{member.name}}{{/link-to}}
       </span>
   {{else}}
     No performers have been assigned to this performance yet.

@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>
+    {{model.name}}
+    <button class="btn-icon pull-right" {{action 'delete' model}}>
+      <span class="glyphicon glyphicon-trash"></span>
+    </button>
+  </h1>
+</div>
+
+<h2>Upcoming Performances</h2>
+
+{{#if model.performances}}
+  {{performances-list performances=model.performances}}
+{{else}}
+  <p>{{model.name}} is currently not assigned to any upcoming performances.</p>
+{{/if}}

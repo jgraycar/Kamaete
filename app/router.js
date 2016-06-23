@@ -25,6 +25,7 @@ Router.map(function() {
 
   this.route('members', function() {
     this.route('index', { path: '/' });
+    this.route('show', { path: '/:member_id' });
   });
 
   this.route('login');
