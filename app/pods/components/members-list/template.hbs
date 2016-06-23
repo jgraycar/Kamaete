@@ -1,10 +1,15 @@
-<ul class="list-group col-sm-6">
+<ul class="list-group col-sm-6 members-list">
   {{#each sortedMembers as |member|}}
-    <li class="list-group-item">
-      {{#if member.performances}}
-        <span class="badge">{{member.performances.length}}</span>
+    <li class="list-group-item members-list-item">
+      {{#if member.upcomingPerformances}}
+        <span class="badge">{{member.upcomingPerformances.length}}</span>
       {{/if}}
+
       {{#link-to 'members.show' member}}{{member.name}}{{/link-to}}
+
+      <button class="btn-icon pull-right" {{action 'delete' member}}>
+        <span class="glyphicon glyphicon-remove"></span>
+      </button>
     </li>
   {{/each}}
   <li class="list-group-item">

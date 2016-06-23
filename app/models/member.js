@@ -4,5 +4,13 @@ import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr('string'),
-  performances: hasMany('performance')
+  performances: hasMany('performance'),
+
+  upcomingPerformances: Ember.computed('performances', function() {
+    return this.get('performances').filterBy('isUpcoming');
+  }),
+
+  pastPerformances: Ember.computed('performances', function() {
+    return this.get('performances').filterBy('isUpcoming', false);
+  })
 });

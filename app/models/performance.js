@@ -9,6 +9,10 @@ export default Model.extend({
   date: attr('date'),
   members: hasMany('member'),
 
+  isUpcoming: Ember.computed('date', function() {
+    return this.get('date') > new Date();
+  }),
+
   sortedMembers: Ember.computed('members', function() {
     return this.get('members').sortBy('name');
   }),

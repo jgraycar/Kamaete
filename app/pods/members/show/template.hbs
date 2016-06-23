@@ -9,8 +9,16 @@
 
 <h2>Upcoming Performances</h2>
 
-{{#if model.performances}}
-  {{performances-list performances=model.performances}}
+{{#if model.upcomingPerformances}}
+  {{performances-list performances=model.upcomingPerformances}}
 {{else}}
   <p>{{model.name}} is currently not assigned to any upcoming performances.</p>
+{{/if}}
+
+<h2>Past Performances</h2>
+
+{{#if model.pastPerformances}}
+  {{performances-list performances=model.pastPerformances}}
+{{else}}
+  <p>{{model.name}} has not participated in any performances yet.</p>
 {{/if}}

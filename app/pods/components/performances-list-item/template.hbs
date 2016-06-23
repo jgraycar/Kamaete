@@ -1,13 +1,15 @@
-{{#link-to 'performances.show' performance}}
-  <div class="media-left">
+<div class="media-left">
+  {{#link-to 'performances.show' performance}}
     <img class="media-object hidden-xs img-thumbnail" src={{performance.imageURL}} />
-  </div>
+  {{/link-to}}
+</div>
 
-  <div class="media-body">
+<div class="media-body">
+  {{#link-to 'performances.show' performance}}
     <h3 class="media-heading">{{performance.title}}</h3>
     <p>{{performance.formattedDate}}</p>
+  {{/link-to}}
 
-    {{#link-to 'performances.edit' performance class='btn btn-warning'}}Edit{{/link-to}}
-    <button {{action "delete" bubbles=false}} class="btn btn-danger">Delete</button>
-  </div>
-{{/link-to}}
+  {{#link-to 'performances.edit' performance class='btn btn-warning'}}Edit{{/link-to}}
+  <button {{action "delete" bubbles=false}} class="btn btn-danger">Delete</button>
+</div>
