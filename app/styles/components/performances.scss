@@ -11,4 +11,8 @@
   .performance-member:last-of-type:before {
     content: 'and ';
   }
+
+  .performance-member:first-of-type:before {
+    content: '';
+  }
 }

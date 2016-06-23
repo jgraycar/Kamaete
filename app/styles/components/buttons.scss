@@ -1,9 +1,9 @@
 .btn-icon {
   background: none;
   border: 0;
-  color: $btn-danger-bg;
+  color: $gray-lighter;
 
   &:hover {
-    color: darken($btn-danger-bg, 15%);
+    color: darken($gray-lighter, 25%);
   }
 }
