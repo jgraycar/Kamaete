@@ -6,24 +6,10 @@ export default Ember.Component.extend({
 
   actions: {
     create() {
-      let date = this.get('date') ? new Date(this.get('date')) : null;
-
       var performance = this.get('performance');
-      if (!performance) {
-        performance = this.get('store').createRecord('performance', {
-          title: this.get('title'),
-          date,
-          members: this.get('selectedMembers')
-        });
-      }
 
       performance.save().then(() => {
         this.sendAction('formSubmittedSuccessfully', performance);
-      },
-
-      (xhr) => {
-        // TODO: display validation errors in xhr.errors
-        // Need to make server send validation errors in JSON-API format;
       });
     },
 
