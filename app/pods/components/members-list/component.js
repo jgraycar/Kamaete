@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     createMember() {
       let name = this.get('name');
 
-      if (name.length) {
+      if (name) {
         const member = this.get('store').createRecord('member', {
           name
         });

@@ -13,6 +13,6 @@ export default Ember.Route.extend({
   actions: {
     viewPerformance(performance) {
       this.transitionTo('performances.show', performance);
-    }
-  }
+    },
+  },
 });
