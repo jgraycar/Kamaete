@@ -1,0 +1,25 @@
+<form class="form-horizontal" {{action "create" on="submit"}}>
+  <div class="form-group {{ if setup.errors.title 'has-error' }} has-feedback">
+    <label for="title" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-10">
+      {{input
+        value=setup.title
+        type="text"
+        id="title"
+        class="form-control"
+        placeholder="What is this setup for?"
+      }}
+
+      {{#if setup.errors.title}}
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+        <span id="inputError2Status" class="sr-only">(error)</span>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">{{submitButtonText}}</button>
+    </div>
+  </div>
+</form>

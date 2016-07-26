@@ -28,6 +28,11 @@ Router.map(function() {
     this.route('show', { path: '/:member_id' });
   });
 
+  this.route('setups', function() {
+    this.route('index', { path: '/' });
+    this.route('new');
+  });
+
   this.route('login');
   this.route('register');
   this.route('account-settings', { path: '/settings' });
