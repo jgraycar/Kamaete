@@ -31,6 +31,7 @@ Router.map(function() {
   this.route('setups', function() {
     this.route('index', { path: '/' });
     this.route('new');
+    this.route('edit', { path: '/:setup_id/edit' });
   });
 
   this.route('login');

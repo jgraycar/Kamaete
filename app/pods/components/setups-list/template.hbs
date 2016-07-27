@@ -1,5 +1,7 @@
 <ul>
   {{#each sortedSetups as |setup|}}
-    <li>{{setup.title}}</li>
+    <li>
+      {{#link-to 'setups.edit' setup}}{{setup.title}}{{/link-to}}
+    </li>
   {{/each}}
 </ul>

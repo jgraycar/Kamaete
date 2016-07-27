@@ -14,5 +14,11 @@ export default Ember.Route.extend({
     viewPerformance(performance) {
       this.transitionTo('performances.show', performance);
     },
+
+    willTransition() {
+      if (this.currentModel.get('hasDirtyAttributes')) {
+        this.currentModel.rollbackAttributes();
+      }
+    },
   },
 });
