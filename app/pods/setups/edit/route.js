@@ -14,6 +14,6 @@ export default Ember.Route.extend({
       if (this.currentModel.get('hasDirtyAttributes')) {
         this.currentModel.rollbackAttributes();
       }
-    }
+    },
   },
 });

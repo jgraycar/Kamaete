@@ -3,6 +3,9 @@ $brand-color: #000070;
 $footer-height: 60px;
 $font-size-large: 20px;
 
+$state-danger-text: #a94442 !default;
+$placeholder-error-color: lighten($state-danger-text, 15%);
+
 // Bootstrap variable overrides
 $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
 $navbar-default-brand-color: #515190;
