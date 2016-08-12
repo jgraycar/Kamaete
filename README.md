@@ -1,7 +1,12 @@
-# Transitions
+# Kamaete
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The frontend client code for [www.kamaete.com](https://www.kamaete.com),
+implemented using [Ember.js](http://emberjs.com/)
+
+**Kamaete** takes drum movements into the future, by offering a modern solution
+to planning stage transitions.
+
+See [here](https://github.com/jgraycar/Kamaete-API) for the backend server code.
 
 ## Prerequisites
 
@@ -15,8 +20,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+* `git clone git@github.com:jgraycar/Kamaete`
+* change into the new directory (`cd Kamaete`)
 * `npm install`
 * `bower install`
 
@@ -25,23 +30,21 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
+For the application to work as intended, the Rails backend must also be running;
+see the [backend repo](https://github.com/jgraycar/Kamaete-API) for the relevant
+setup instructions.
 
 ### Running Tests
 
 * `ember test`
 * `ember test --server`
 
-### Building
+### Building & Deploying
 
 * `ember build` (development)
-* `ember build --environment production` (production)
 
-### Deploying
-
-Specify what it takes to deploy your app.
+To simultaneously build the code in the production environment and deploy it to the
+Firebase-hosted live site, simply run `bin/deploy`
 
 ## Further Reading / Useful Links
 
