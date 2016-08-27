@@ -1,6 +1,5 @@
 {
   "preset": "airbnb",
   "requireTrailingComma": false,
-  "requireSpacesInAnonymousFunctionExpression": false,
-  "excludeFiles": ["Brocfile.js"]
+  "requireSpacesInAnonymousFunctionExpression": false
 }
