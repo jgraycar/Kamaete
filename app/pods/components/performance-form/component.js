@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   actions: {
     create() {
       var performance = this.get('performance');
+      debugger;
 
       performance.save().then(() => {
         this.sendAction('formSubmittedSuccessfully', performance);

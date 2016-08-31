@@ -30,11 +30,17 @@
 
     {{content-for "head"}}
 
-    <script src="assets/webcomponentsjs/webcomponents.js"></script>
-    <link rel="import" href="assets/vulcanized.html">
+    <script src="{{rootURL}}assets/webcomponentsjs/webcomponents.js"></script>
+    <script>
+      /* Polymer global settings */
+      window.Polymer = {
+        dom: 'shadow'
+      };
+    </script>
+    <link rel="import" href="{{rootURL}}assets/vulcanized.html">
 
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/transitions.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/transitions.css">
 
     {{content-for "head-footer"}}
 
@@ -52,8 +58,8 @@
   <body>
     {{content-for "body"}}
 
-    <script src="assets/vendor.js"></script>
-    <script src="assets/transitions.js"></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/transitions.js"></script>
 
     {{content-for "body-footer"}}
   </body>
