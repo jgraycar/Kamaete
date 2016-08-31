@@ -8,7 +8,8 @@ export default Ember.Component.extend({
 
   actions: {
     createMember() {
-      let name = this.get('name');
+      const nameInput = Ember.$('#new-member-name')[0];
+      let name = nameInput.value;
 
       if (name) {
         const member = this.get('store').createRecord('member', {
@@ -22,7 +23,7 @@ export default Ember.Component.extend({
           // TODO: display validation errors in xhr.errors
           // Need to make server send validation errors in JSON-API format;
         });
-        this.set('name', '');
+        nameInput.value = '';
       }
     },
 
