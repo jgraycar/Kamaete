@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'li',
-  classNames: ['performances-list-item', 'media'],
+  classNames: [
+      'performances-list-item', 'col-sm-6', 'col-md-4', 'col-lg-3]'],
   flashMessages: Ember.inject.service(),
 
   actions: {
