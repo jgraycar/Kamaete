@@ -5,9 +5,9 @@ export default Ember.Component.extend({
 
   actions: {
     create() {
-      var setup = this.get('setup');
+      var stageLayout = this.get('stage-layout');
 
-      setup.save().then(() => {
+      stageLayout.save().then(() => {
         this.sendAction('formSubmittedSuccessfully');
       });
     }

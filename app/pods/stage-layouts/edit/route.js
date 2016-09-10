@@ -2,12 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.store.findRecord('setup', params.setup_id);
+    return this.store.findRecord('stage-layout', params.stage_layout_id);
   },
 
   actions: {
     setupUpdated() {
-      this.transitionTo('setups');
+      this.transitionTo('stage-layouts');
     },
 
     willTransition() {

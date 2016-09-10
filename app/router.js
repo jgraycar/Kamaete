@@ -29,10 +29,10 @@ Router.map(function() {
     this.route('show', { path: '/:member_id' });
   });
 
-  this.route('setups', function() {
+  this.route('stage-layouts', function() {
     this.route('index', { path: '/' });
     this.route('new');
-    this.route('edit', { path: '/:setup_id/edit' });
+    this.route('edit', { path: '/:stage_layout_id/edit' });
   });
 
   this.route('login');

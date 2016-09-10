@@ -1,0 +1,7 @@
+{{#each sortedStageLayouts as |stageLayout|}}
+  <li>
+    {{#link-to 'stage-layouts.edit' stageLayout}}
+      {{stageLayout.name}}
+    {{/link-to}}
+  </li>
+{{/each}}
