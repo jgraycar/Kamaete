@@ -1,21 +1,7 @@
 <form class="form-horizontal" {{action "create" on="submit"}}>
-  <div class="form-group {{ if performance.errors.title 'has-error' }} has-feedback">
-    <label for="title" class="col-sm-2 control-label">Title</label>
-    <div class="col-sm-10">
-      {{input
-        value=performance.title
-        type="text"
-        id="title"
-        class="form-control"
-        placeholder="What is this performance for?"
-      }}
-
-      {{#if performance.errors.title}}
-        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-        <span id="inputError2Status" class="sr-only">(error)</span>
-      {{/if}}
-    </div>
-  </div>
+  <paper-input label="Title" id="title" value={{performance.title}}
+    required auto-validate error-message="Please enter a title for this performance." >
+  </paper-input>
 
   <div class="form-group {{ if performance.errors.date 'has-error' }} has-feedback">
     <label for="date" class="col-sm-2 control-label">Date</label>

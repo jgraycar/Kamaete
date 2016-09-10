@@ -16,3 +16,16 @@
     content: '';
   }
 }
+
+.performance-card {
+  margin-bottom: 30px;
+  width: 100%;
+
+  .card-header {
+    font-size: 20px;
+  }
+
+  .performance-details * {
+    font-size: 18px;
+  }
+}

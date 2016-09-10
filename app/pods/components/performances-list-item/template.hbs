@@ -1,15 +1,17 @@
-<div class="media-left">
-  {{#link-to 'performances.show' performance}}
-    <img class="media-object hidden-xs img-thumbnail" src={{performance.imageURL}} />
-  {{/link-to}}
-</div>
+<paper-card class="performance-card" image={{performance.imageURL}}>
+  <div class="card-content">
+    {{#link-to 'performances.show' performance class='card-header'}}
+      {{performance.title}}
+    {{/link-to}}
 
-<div class="media-body">
-  {{#link-to 'performances.show' performance}}
-    <h3 class="media-heading">{{performance.title}}</h3>
-    <p>{{performance.formattedDate}}</p>
-  {{/link-to}}
-
-  {{#link-to 'performances.edit' performance class='btn btn-warning'}}Edit{{/link-to}}
-  <button {{action "delete" bubbles=false}} class="btn btn-danger">Delete</button>
-</div>
+    <div class="performance-details">
+      <p>{{performance.formattedDate}}</p>
+    </div>
+  </div>
+  <div class="card-actions">
+    {{#link-to 'performances.edit' performance}}
+      <paper-button raised>Edit</paper-button>
+    {{/link-to}}
+    <paper-button {{action "delete" bubbles=false}}>Delete</paper-button>
+  </div>
+</paper-card>

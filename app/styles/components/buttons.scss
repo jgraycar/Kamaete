@@ -7,3 +7,10 @@
     color: darken($gray-lighter, 25%);
   }
 }
+
+paper-fab {
+  bottom: 3%;
+  position: fixed;
+  right: 5%;
+  z-index: 100;
+}
