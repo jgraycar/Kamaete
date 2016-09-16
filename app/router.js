@@ -35,6 +35,12 @@ Router.map(function() {
     this.route('edit', { path: '/:stage_layout_id/edit' });
   });
 
+  this.route('instrument-types', function() {
+    this.route('index', { path: '/' });
+    this.route('new');
+    this.route('show', { path: '/:instrument_type_id' });
+  });
+
   this.route('login');
   this.route('register');
   this.route('account-settings', { path: '/settings' });
