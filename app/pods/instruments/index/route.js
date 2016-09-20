@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
   actions: {
     create() {
-      this.transitionTo('instrument-types.new');
+      this.transitionTo('instruments.new');
     },
   },
 });

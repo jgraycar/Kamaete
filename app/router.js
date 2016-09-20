@@ -29,13 +29,13 @@ Router.map(function() {
     this.route('show', { path: '/:member_id' });
   });
 
-  this.route('stage-layouts', function() {
+  this.route('layouts', function() {
     this.route('index', { path: '/' });
     this.route('new');
     this.route('edit', { path: '/:stage_layout_id/edit' });
   });
 
-  this.route('instrument-types', function() {
+  this.route('instruments', function() {
     this.route('index', { path: '/' });
     this.route('new');
     this.route('show', { path: '/:instrument_type_id' });

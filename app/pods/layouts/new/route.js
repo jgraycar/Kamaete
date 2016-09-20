@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
   actions: {
     setupCreated() {
-      this.transitionTo('stage-layouts');
+      this.transitionTo('layouts');
     },
 
     willTransition() {
