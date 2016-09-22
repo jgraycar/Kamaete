@@ -1,7 +1,7 @@
 {
-  "name": "transitions",
+  "name": "kamaete",
   "version": "0.0.0",
-  "description": "Small description for transitions goes here",
+  "description": "Bringing stage transitions into the future",
   "private": true,
   "directories": {
     "doc": "doc",

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ENV from 'transitions/config/environment';
+import ENV from 'kamaete/config/environment';
 import Session from 'ember-simple-auth/services/session';
 
 const { RSVP, run } = Ember;

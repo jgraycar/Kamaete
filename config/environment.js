@@ -2,8 +2,8 @@
 
 module.exports = function (environment) {
   var ENV = {
-    modulePrefix: 'transitions',
-    podModulePrefix: 'transitions/pods',
+    modulePrefix: 'kamaete',
+    podModulePrefix: 'kamaete/pods',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

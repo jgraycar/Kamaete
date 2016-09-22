@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import AuthInitializer from 'transitions/initializers/auth';
+import AuthInitializer from 'kamaete/initializers/auth';
 import { module, test } from 'qunit';
 
 let application;

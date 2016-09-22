@@ -1,5 +1,5 @@
 import DeviseAuthenticator from 'ember-simple-auth/authenticators/devise';
-import ENV from 'transitions/config/environment';
+import ENV from 'kamaete/config/environment';
 import Ember from 'ember';
 
 const { RSVP, isEmpty, run } = Ember;
