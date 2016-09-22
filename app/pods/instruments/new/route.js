@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.createRecord('instrument-type');
+    return this.store.createRecord('instrument');
   },
 
   actions: {

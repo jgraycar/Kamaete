@@ -38,7 +38,7 @@ Router.map(function() {
   this.route('instruments', function() {
     this.route('index', { path: '/' });
     this.route('new');
-    this.route('show', { path: '/:instrument_type_id' });
+    this.route('show', { path: '/:instrument_id' });
   });
 
   this.route('login');

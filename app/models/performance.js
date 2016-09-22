@@ -3,9 +3,10 @@ import DS from 'ember-data';
 import moment from 'moment';
 
 export default DS.Model.extend({
+  members: DS.hasMany('member'),
+
   title: DS.attr('string'),
   date: DS.attr('date'),
-  members: DS.hasMany('member'),
 
   isUpcoming: Ember.computed('date', function() {
     return this.get('date') > new Date();
