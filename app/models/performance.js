@@ -21,6 +21,6 @@ export default DS.Model.extend({
   }),
 
   imageURL: Ember.computed('id', function() {
-    return `https://robohash.org/${this.get('id')}?size=200x150&set=any&bgset=any`;
-  })
+    return 'https://thecatapi.com/api/images/get?format=src&type=jpg&size=med';
+  }),
 });
