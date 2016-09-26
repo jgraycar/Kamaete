@@ -1,21 +1,22 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 
 <dom-module id="kamaete-stage">
   <template>
     <style>
-      /* local styles go here */
-      :host {
-        display: inline-block;
-      }
     </style>
     <!-- local DOM goes here -->
-    <span>Not much here yet.</span>
+    <paper-material elevation=3>
+      <svg width="800" height="450" viewBox="0 0 100 100">
+        <content></content>
+      </svg>
+    </paper-material>
   </template>
 
   <script>
     Polymer({
       /* this is the element's prototype */
-      is: 'kamaete-stage'
+      is: 'kamaete-stage',
     });
   </script>
 </dom-module>
