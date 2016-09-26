@@ -1,1 +1,11 @@
-<rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+{{#if instrument.isCircle}}
+  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+{{else if instrument.isSquare}}
+  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+{{else if instrument.isTriangle}}
+  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+{{else if instrument.isRectangle}}
+  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+{{else if instrument.isCross}}
+  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+{{/if}}

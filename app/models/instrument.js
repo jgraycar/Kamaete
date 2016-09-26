@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -13,4 +14,24 @@ export default DS.Model.extend({
   y: DS.attr('number'),
   angle: DS.attr('number'),
   template: DS.attr('boolean', { defaultValue: false }),
+
+  isCircle: Ember.computed('shape', function() {
+    return this.get('shape') === 'circle';
+  }),
+
+  isRectangle: Ember.computed('shape', function() {
+    return this.get('shape') === 'rectangle';
+  }),
+
+  isTriangle: Ember.computed('shape', function() {
+    return this.get('shape') === 'triangle';
+  }),
+
+  isCross: Ember.computed('shape', function() {
+    return this.get('shape') === 'cross';
+  }),
+
+  isSquare: Ember.computed('shape', function() {
+    return this.get('shape') === 'square';
+  }),
 });
