@@ -32,7 +32,7 @@ Router.map(function() {
   this.route('layouts', function() {
     this.route('index', { path: '/' });
     this.route('new');
-    this.route('edit', { path: '/:stage_layout_id/edit' });
+    this.route('show', { path: '/:stage_layout_id' });
   });
 
   this.route('instruments', function() {
