@@ -1,11 +1,13 @@
-{{#if instrument.isCircle}}
-  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+{{#if instrument.isEllipse}}
+  <ellipse rx={{instrument.width}} ry={{instrument.height}} cx={{instrument.xCoor}}
+          cy={{instrument.yCoor}} fill={{instrument.color}} />
 {{else if instrument.isSquare}}
   <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
 {{else if instrument.isTriangle}}
   <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
 {{else if instrument.isRectangle}}
-  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+  <rect width={{instrument.width}} height={{instrument.height}} x={{instrument.xCoor}}
+        y={{instrument.yCoor}} fill={{instrument.color}} />
 {{else if instrument.isCross}}
   <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
 {{/if}}

@@ -9,14 +9,15 @@ export default DS.Model.extend({
   kind: DS.attr('string'),
   shape: DS.attr('string'),
   color: DS.attr('string'),
-  size: DS.attr('number'),
+  width: DS.attr('number'),
+  height: DS.attr('number'),
   x: DS.attr('number'),
   y: DS.attr('number'),
   angle: DS.attr('number'),
   template: DS.attr('boolean', { defaultValue: false }),
 
-  isCircle: Ember.computed('shape', function() {
-    return this.get('shape') === 'circle';
+  isEllipse: Ember.computed('shape', function() {
+    return this.get('shape') === 'ellipse';
   }),
 
   isRectangle: Ember.computed('shape', function() {
@@ -31,7 +32,19 @@ export default DS.Model.extend({
     return this.get('shape') === 'cross';
   }),
 
-  isSquare: Ember.computed('shape', function() {
-    return this.get('shape') === 'square';
+  xCoor: Ember.computed('x', 'template', function() {
+    if (this.get('template')) {
+      return 400;
+    }
+
+    return this.get('x');
+  }),
+
+  yCoor: Ember.computed('y', 'template', function() {
+    if (this.get('template')) {
+      return 225;
+    }
+
+    return this.get('y');
   }),
 });
