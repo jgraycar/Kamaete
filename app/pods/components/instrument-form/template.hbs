@@ -14,3 +14,7 @@
               onchange={{action (mut instrument.height) value="target.value"}}
               onmousemove={{action (mut instrument.height) value="target.immediateValue"}}
               value={{instrument.height}} pin editable></paper-slider>
+<paper-slider data-attribute="angle" class="col-sm-12" min="0" max="360"
+              onchange={{action (mut instrument.angle) value="target.value"}}
+              onmousemove={{action (mut instrument.angle) value="target.immediateValue"}}
+              value={{instrument.angle}} pin editable></paper-slider>
