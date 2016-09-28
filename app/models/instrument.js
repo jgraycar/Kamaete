@@ -32,19 +32,37 @@ export default DS.Model.extend({
     return this.get('shape') === 'cross';
   }),
 
-  xCoor: Ember.computed('x', 'template', function() {
+  xCoor: Ember.computed('x', 'template', 'centerX', function() {
     if (this.get('template')) {
-      return 400;
+      return this.get('centerX');
     }
 
     return this.get('x');
   }),
 
-  yCoor: Ember.computed('y', 'template', function() {
+  yCoor: Ember.computed('y', 'template', 'centerY', function() {
     if (this.get('template')) {
-      return 225;
+      return this.get('centerY');
     }
 
     return this.get('y');
+  }),
+
+  centerX: Ember.computed('x', 'shape', 'width', function() {
+    let adjustment = 0;
+    if (this.get('isRectangle')) {
+      adjustment = this.get('width') / 2;
+    }
+
+    return 400 - adjustment;
+  }),
+
+  centerY: Ember.computed('y', 'shape', 'height', function() {
+    let adjustment = 0;
+    if (this.get('isRectangle')) {
+      adjustment = this.get('height') / 2;
+    }
+
+    return 225 - adjustment;
   }),
 });
