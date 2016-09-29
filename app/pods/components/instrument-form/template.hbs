@@ -1,28 +1,45 @@
-{{input value=instrument.color class="col-sm-12"}}
-
 <select onchange={{action (mut instrument.shape) value="target.value"}}>
   {{#each shapeOptions as |shape|}}
     <option value={{shape}} selected={{eq instrument.shape shape}}>{{shape}}</option>
   {{/each}}
 </select>
 
-<paper-slider data-attribute="width" class="col-sm-12" min="1" max="250"
-              onchange={{action (mut instrument.width) value="target.value"}}
-              onmousemove={{action (mut instrument.width) value="target.immediateValue"}}
-              value={{instrument.width}} pin editable></paper-slider>
-<paper-slider data-attribute="height" class="col-sm-12" min="1" max="250"
-              onchange={{action (mut instrument.height) value="target.value"}}
-              onmousemove={{action (mut instrument.height) value="target.immediateValue"}}
-              value={{instrument.height}} pin editable></paper-slider>
-<paper-slider data-attribute="angle" class="col-sm-12" min="0" max="360"
-              onchange={{action (mut instrument.angle) value="target.value"}}
-              onmousemove={{action (mut instrument.angle) value="target.immediateValue"}}
-              value={{instrument.angle}} pin editable></paper-slider>
+{{input value=instrument.color class="col-sm-12"}}
 
 <div class="col-sm-12">
-  <paper-button raised onclick={{action 'saveInstrument'}}
-                disabled={{instrument.isNotDirty}}><iron-icon icon="done"></iron-icon>Save Changes</paper-button>
+  <span class="slider-label">Width</span>
+  <paper-slider data-attribute="width" min="1" max="250"
+      onchange={{action (mut instrument.width) value="target.value"}}
+      onmousemove={{action (mut instrument.width) value="target.immediateValue"}}
+      value={{instrument.width}} pin editable></paper-slider>
+</div>
 
-  <paper-button onclick={{action 'undoChanges'}}
-                disabled={{instrument.isNotDirty}}><iron-icon icon="clear"></iron-icon>Undo Changes</paper-button>
+<div class="col-sm-12">
+  <span class="slider-label">Height</span>
+  <paper-slider data-attribute="height" min="1" max="250"
+      onchange={{action (mut instrument.height) value="target.value"}}
+      onmousemove={{action (mut instrument.height) value="target.immediateValue"}}
+      value={{instrument.height}} pin editable></paper-slider>
+</div>
+
+<div class="col-sm-12">
+  <span class="slider-label">Angle</span>
+  <paper-slider data-attribute="angle" min="0" max="360"
+      onchange={{action (mut instrument.angle) value="target.value"}}
+      onmousemove={{action (mut instrument.angle) value="target.immediateValue"}}
+      value={{instrument.angle}} pin editable></paper-slider>
+</div>
+
+<div class="col-sm-12">
+  <paper-button onclick={{action 'saveChanges'}} disabled={{instrument.isNotDirty}}
+      class="visible-lg-inline"><iron-icon icon="done"></iron-icon>Save Changes</paper-button>
+
+  <paper-button onclick={{action 'undoChanges'}} disabled={{instrument.isNotDirty}}
+      class="visible-lg-inline"><iron-icon icon="clear"></iron-icon>Undo Changes</paper-button>
+
+  <paper-button onclick={{action 'saveChanges'}} disabled={{instrument.isNotDirty}}
+      class="hidden-lg"><iron-icon icon="done"></iron-icon>Save</paper-button>
+
+  <paper-button onclick={{action 'undoChanges'}} disabled={{instrument.isNotDirty}}
+      class="hidden-lg"><iron-icon icon="clear"></iron-icon>Undo</paper-button>
 </div>

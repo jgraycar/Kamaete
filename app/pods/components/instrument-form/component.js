@@ -2,13 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   shapeOptions: ['ellipse', 'rectangle', 'cross', 'triangle'],
+  classNames: ['row', 'instrument-form'],
 
   actions: {
-    saveInstrument() {
+    saveChanges() {
       this.get('instrument').save().then(() => {
-        console.log('Instrument updated!');
+        const toast = Ember.$('#toast')[0];
+        toast.text = 'Changes saved.';
+        toast.open();
       }, () => {
-        console.log('Instrument could not be saved');
+        const toast = Ember.$('#toast')[0];
+        toast.text = 'Changes could not be saved; please try again.';
+        toast.open();
       });
     },
 
