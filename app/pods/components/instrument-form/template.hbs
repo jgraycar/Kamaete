@@ -18,3 +18,11 @@
               onchange={{action (mut instrument.angle) value="target.value"}}
               onmousemove={{action (mut instrument.angle) value="target.immediateValue"}}
               value={{instrument.angle}} pin editable></paper-slider>
+
+<div class="col-sm-12">
+  <paper-button raised onclick={{action 'saveInstrument'}}
+                disabled={{instrument.isNotDirty}}><iron-icon icon="done"></iron-icon>Save Changes</paper-button>
+
+  <paper-button onclick={{action 'undoChanges'}}
+                disabled={{instrument.isNotDirty}}><iron-icon icon="clear"></iron-icon>Undo Changes</paper-button>
+</div>

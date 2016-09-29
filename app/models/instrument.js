@@ -105,4 +105,6 @@ export default DS.Model.extend({
 
     return `rotate(${this.get('angle')} ${pivotX} ${pivotY})`;
   }),
+
+  isNotDirty: Ember.computed.not('hasDirtyAttributes'),
 });
