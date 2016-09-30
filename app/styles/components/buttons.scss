@@ -14,3 +14,26 @@ paper-fab {
   right: 5%;
   z-index: 100;
 }
+
+.btn-save {
+  padding-right: 11px;
+  transition: all .3s ease;
+
+  &:not([disabled]) {
+    border: 1px solid $btn-success-border;
+    color: $btn-success-bg;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: $btn-success-bg;
+    color: $btn-success-color;
+  }
+}
+
+.btn-undo {
+  transition: all .3s ease;
+
+  &:hover:not([disabled]) {
+    color: $btn-danger-bg;
+  }
+}

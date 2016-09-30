@@ -22,6 +22,7 @@ PreCommit:
     enabled: true
 
   ScssLint:
+    on_warn: fail
     enabled: true
 
   TrailingWhitespace:
