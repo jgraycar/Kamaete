@@ -6,14 +6,14 @@ export default DS.Model.extend({
   member: DS.belongsTo('member'),
 
   label: DS.attr('string'),
-  kind: DS.attr('string'),
-  shape: DS.attr('string'),
-  color: DS.attr('string'),
-  width: DS.attr('number'),
-  height: DS.attr('number'),
-  x: DS.attr('number'),
-  y: DS.attr('number'),
-  angle: DS.attr('number'),
+  kind: DS.attr('string', { required: true }),
+  shape: DS.attr('string', { defaultValue: 'ellipse' }),
+  color: DS.attr('string', { defaultValue: '#000' }),
+  width: DS.attr('number', { defaultValue: 20 }),
+  height: DS.attr('number', { defaultValue: 20 }),
+  x: DS.attr('number', { defaultValue: 0 }),
+  y: DS.attr('number', { defaultValue: 0 }),
+  angle: DS.attr('number', { defaultValue: 0 }),
   template: DS.attr('boolean', { defaultValue: false }),
 
   isEllipse: Ember.computed('shape', function() {

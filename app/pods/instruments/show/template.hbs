@@ -1,5 +1,9 @@
-<div class="page-header">
-  <h1>{{model.kind}}</h1>
+<div class="header-input col-xs-12">
+  <paper-input-container auto-validate always-float-label>
+    <label>Instrument Type</label>
+    {{input is="iron-input" value=model.kind required=true}}
+    <paper-input-error>Please enter the name of this type of instrument.</paper-input-error>
+  </paper-input-container>
 </div>
 
 <div class="col-sm-4 col-xs-12 col-sm-push-8">

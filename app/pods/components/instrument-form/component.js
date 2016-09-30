@@ -10,6 +10,7 @@ export default Ember.Component.extend({
         const toast = Ember.$('#toast')[0];
         toast.text = 'Changes saved.';
         toast.open();
+        this.sendAction('instrumentSaved', this.get('instrument'));
       }, () => {
         const toast = Ember.$('#toast')[0];
         toast.text = 'Changes could not be saved; please try again.';

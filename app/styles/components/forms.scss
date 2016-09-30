@@ -15,22 +15,10 @@
   }
 }
 
-.has-error {
-  ::-webkit-input-placeholder {
-    color: $placeholder-error-color;
-  }
+.header-input {
+  margin-bottom: 30px;
 
-  :-moz-placeholder {
-    // Firefox 18-
-    color: $placeholder-error-color;
-  }
-
-  ::-moz-placeholder {
-    // Firefox 19+
-    color: $placeholder-error-color;
-  }
-
-  :-ms-input-placeholder {
-    color: $placeholder-error-color;
+  input {
+    font-size: 40px !important;
   }
 }
