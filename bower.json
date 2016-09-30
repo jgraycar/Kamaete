@@ -6,6 +6,7 @@
     "ember-qunit-notifications": "0.1.0",
     "bootstrap-datepicker": "^1.6.1",
     "polymer": "^1.6.1",
-    "paper-elements": "PolymerElements/paper-elements#^1.0.7"
+    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
+    "spectrum": "^1.8.0"
   }
 }

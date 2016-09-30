@@ -1,10 +1,14 @@
-<select onchange={{action (mut instrument.shape) value="target.value"}}>
-  {{#each shapeOptions as |shape|}}
-    <option value={{shape}} selected={{eq instrument.shape shape}}>{{shape}}</option>
-  {{/each}}
-</select>
+<div class="col-xs-8">
+  <select onchange={{action (mut instrument.shape) value="target.value"}}
+      class="form-control">
+    {{#each shapeOptions as |shape|}}
+      <option value={{shape}} selected={{eq instrument.shape shape}}>{{shape}}</option>
+    {{/each}}
+  </select>
+</div>
 
-{{input value=instrument.color class="col-sm-12"}}
+{{spectrum-color-picker showInput=true preferredFormat="hex" color=instrument.color
+    moveFiresChange=true showButtons=false showInitial=true}}
 
 <div class="col-sm-12">
   <span class="slider-label">Width</span>
@@ -32,14 +36,16 @@
 
 <div class="col-sm-12">
   <paper-button onclick={{action 'saveChanges'}} disabled={{instrument.isNotDirty}}
-      class="visible-lg-inline"><iron-icon icon="done"></iron-icon>Save Changes</paper-button>
+      class="visible-lg-inline btn-save">
+    <iron-icon icon="done"></iron-icon>Save Changes</paper-button>
 
   <paper-button onclick={{action 'undoChanges'}} disabled={{instrument.isNotDirty}}
-      class="visible-lg-inline"><iron-icon icon="clear"></iron-icon>Undo Changes</paper-button>
+      class="visible-lg-inline btn-undo">
+    <iron-icon icon="clear"></iron-icon>Undo Changes</paper-button>
 
   <paper-button onclick={{action 'saveChanges'}} disabled={{instrument.isNotDirty}}
-      class="hidden-lg"><iron-icon icon="done"></iron-icon>Save</paper-button>
+      class="hidden-lg btn-save"><iron-icon icon="done"></iron-icon>Save</paper-button>
 
   <paper-button onclick={{action 'undoChanges'}} disabled={{instrument.isNotDirty}}
-      class="hidden-lg"><iron-icon icon="clear"></iron-icon>Undo</paper-button>
+      class="hidden-lg btn-undo"><iron-icon icon="clear"></iron-icon>Undo</paper-button>
 </div>
