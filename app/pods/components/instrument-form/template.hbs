@@ -10,28 +10,30 @@
 {{spectrum-color-picker showInput=true preferredFormat="hex" color=instrument.color
     moveFiresChange=true showButtons=false showInitial=true}}
 
-<div class="col-sm-12">
-  <span class="slider-label">Width</span>
-  <paper-slider data-attribute="width" min="1" max="250"
-      onchange={{action (mut instrument.width) value="target.value"}}
-      onmousemove={{action (mut instrument.width) value="target.immediateValue"}}
-      value={{instrument.width}} pin editable></paper-slider>
-</div>
+<div class="sliders">
+  <div class="col-sm-12">
+    <span class="slider-label">Width</span>
+    <paper-slider data-attribute="width" min="1" max="250"
+        onchange={{action (mut instrument.width) value="target.value"}}
+        onmousemove={{action (mut instrument.width) value="target.immediateValue"}}
+        value={{instrument.width}} pin editable></paper-slider>
+  </div>
 
-<div class="col-sm-12">
-  <span class="slider-label">Height</span>
-  <paper-slider data-attribute="height" min="1" max="250"
-      onchange={{action (mut instrument.height) value="target.value"}}
-      onmousemove={{action (mut instrument.height) value="target.immediateValue"}}
-      value={{instrument.height}} pin editable></paper-slider>
-</div>
+  <div class="col-sm-12">
+    <span class="slider-label">Height</span>
+    <paper-slider data-attribute="height" min="1" max="250"
+        onchange={{action (mut instrument.height) value="target.value"}}
+        onmousemove={{action (mut instrument.height) value="target.immediateValue"}}
+        value={{instrument.height}} pin editable></paper-slider>
+  </div>
 
-<div class="col-sm-12">
-  <span class="slider-label">Angle</span>
-  <paper-slider data-attribute="angle" min="0" max="360"
-      onchange={{action (mut instrument.angle) value="target.value"}}
-      onmousemove={{action (mut instrument.angle) value="target.immediateValue"}}
-      value={{instrument.angle}} pin editable></paper-slider>
+  <div class="col-sm-12">
+    <span class="slider-label">Angle</span>
+    <paper-slider data-attribute="angle" min="0" max="360"
+        onchange={{action (mut instrument.angle) value="target.value"}}
+        onmousemove={{action (mut instrument.angle) value="target.immediateValue"}}
+        value={{instrument.angle}} pin editable></paper-slider>
+  </div>
 </div>
 
 <div class="col-sm-12">

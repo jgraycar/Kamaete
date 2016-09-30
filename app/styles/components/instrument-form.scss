@@ -1,12 +1,12 @@
 .instrument-form {
   margin-bottom: 20px;
 
-  paper-slider {
-    width: 100%;
-  }
+  .sliders {
+    margin-top: 20px;
 
-  .slider-label {
-
+    paper-slider {
+      width: 100%;
+    }
   }
 }
 
