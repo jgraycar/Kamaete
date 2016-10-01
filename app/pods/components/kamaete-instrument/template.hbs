@@ -5,7 +5,8 @@
 {{else if instrument.isSquare}}
   <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
 {{else if instrument.isTriangle}}
-  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+  <polygon points={{instrument.trianglePoints}} fill={{instrument.color}}
+      transform={{instrument.rotationTransformation}} />
 {{else if instrument.isRectangle}}
   <rect width={{instrument.width}} height={{instrument.height}} x={{instrument.xCoor}}
         transform={{instrument.rotationTransformation}}

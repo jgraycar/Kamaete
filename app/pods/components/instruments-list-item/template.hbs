@@ -1,1 +1,12 @@
-{{#link-to 'instruments.show' instrument}}{{instrument.kind}}{{/link-to}}
+<paper-card class="instrument-card">
+  <div class="instrument-image">
+    <svg viewBox={{instrument.viewBox}}>
+      {{kamaete-instrument instrument=instrument}}
+    </svg>
+  </div>
+  <div class="card-content">
+    {{#link-to 'instruments.show' instrument class='card-header'}}
+      {{instrument.kind}}
+    {{/link-to}}
+  </div>
+</paper-card>

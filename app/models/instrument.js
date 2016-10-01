@@ -66,7 +66,7 @@ export default DS.Model.extend({
    */
   centerX: Ember.computed('x', 'shape', 'width', function() {
     let adjustment = 0;
-    if (this.get('isRectangle')) {
+    if (!this.get('isCircle')) {
       adjustment = this.get('width') / 2;
     }
 
@@ -79,7 +79,7 @@ export default DS.Model.extend({
    */
   centerY: Ember.computed('y', 'shape', 'height', function() {
     let adjustment = 0;
-    if (this.get('isRectangle')) {
+    if (!this.get('isCircle')) {
       adjustment = this.get('height') / 2;
     }
 
@@ -98,7 +98,7 @@ export default DS.Model.extend({
     // they will point to it's center (other than circle's, most SVG elements
     // instead point to their top left corner). Undo that adjustment here so
     // that the rotation applies as expected.
-    if (this.get('isRectangle')) {
+    if (!this.get('isCircle')) {
       pivotX += this.get('width') / 2;
       pivotY += this.get('height') / 2;
     }
@@ -107,4 +107,22 @@ export default DS.Model.extend({
   }),
 
   isNotDirty: Ember.computed.not('hasDirtyAttributes'),
+
+  viewBox: Ember.computed('xCoor', 'yCoor', function() {
+    let x = this.get('xCoor');
+    let y = this.get('yCoor');
+
+    return `${x} ${y} ${this.get('width')} ${this.get('height')}`;
+  }),
+
+  trianglePoints: Ember.computed('xCoor', 'yCoor', function() {
+    const points = [];
+    const xCoor = this.get('xCoor');
+    const yCoor = this.get('yCoor');
+
+    points.push(`${xCoor} ${yCoor}`);
+    points.push(`${xCoor + this.get('width')} ${yCoor}`);
+    points.push(`${xCoor + (this.get('width') / 2)} ${yCoor + this.get('height')}`);
+    return points.join(',');
+  }),
 });
