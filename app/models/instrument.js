@@ -16,6 +16,8 @@ export default DS.Model.extend({
   angle: DS.attr('number', { defaultValue: 0 }),
   template: DS.attr('boolean', { defaultValue: false }),
 
+  isNotDirty: Ember.computed.not('hasDirtyAttributes'),
+
   isEllipse: Ember.computed('shape', function() {
     return this.get('shape') === 'ellipse';
   }),
@@ -33,57 +35,47 @@ export default DS.Model.extend({
   }),
 
   /**
-   * Returns the x coordinate to use for displaying the instrument
-   * on the stage SVG element. Templates are not required to have a
-   * defined X attribute. Since they are only shown when being edited,
-   * their x coordinate should be such that they are centered.
+   * Returns the x-coordinate to use for displaying the instrument on the
+   * stage SVG element. Most SVG elements (other than circles) are
+   * positioned at their top-left corner. Adjust the x-coordinate so that
+   * no matter the instrument's shape, xCoor will point to it's center.
    */
-  xCoor: Ember.computed('x', 'template', 'centerX', function() {
-    if (this.get('template')) {
-      return this.get('centerX');
-    }
-
-    return this.get('x');
-  }),
-
-  /**
-   * Returns the y coordinate to use for displaying the instrument
-   * on the stage SVG element. Templates are not required to have a
-   * defined Y attribute. Since they are only shown when being edited,
-   * their y coordinate should be such that they are centered.
-   */
-  yCoor: Ember.computed('y', 'template', 'centerY', function() {
-    if (this.get('template')) {
-      return this.get('centerY');
-    }
-
-    return this.get('y');
-  }),
-
-  /**
-   * Calculates the x coordinate that would cause the instrument to be
-   * centered in the SVG stage element, based on shape and size.
-   */
-  centerX: Ember.computed('x', 'shape', 'width', function() {
+  xCoor: Ember.computed('x', 'template', 'centerX', 'shape', 'width', function() {
     let adjustment = 0;
     if (!this.get('isCircle')) {
       adjustment = this.get('width') / 2;
     }
 
-    return 400 - adjustment;
+    if (this.get('template')) {
+      // Templates are not required to have a defined X attribute. Since they
+      // are only shown when being edited, set their x-coordinate such that
+      // they are centered.
+      return 400 - adjustment;
+    }
+
+    return this.get('x') - adjustment;
   }),
 
   /**
-   * Calculates the y coordinate that would cause the instrument to be
-   * centered in the SVG stage element, based on shape and size.
+   * Returns the y-coordinate to use for displaying the instrument on the
+   * stage SVG element. Most SVG elements (other than circles) are
+   * positioned at their top-left corner. Adjust the y-coordinate so that
+   * no matter the instrument's shape, yCoor will point to it's center.
    */
-  centerY: Ember.computed('y', 'shape', 'height', function() {
+  yCoor: Ember.computed('y', 'template', 'centerY', 'shape', 'height', function() {
     let adjustment = 0;
     if (!this.get('isCircle')) {
       adjustment = this.get('height') / 2;
     }
 
-    return 225 - adjustment;
+    if (this.get('template')) {
+      // Templates are not required to have a defined Y attribute. Since they
+      // are only shown when being edited, set their y-coordinate such that
+      // they are centered.
+      return 225 - adjustment;
+    }
+
+    return this.get('y') - adjustment;
   }),
 
   /**
@@ -106,8 +98,9 @@ export default DS.Model.extend({
     return `rotate(${this.get('angle')} ${pivotX} ${pivotY})`;
   }),
 
-  isNotDirty: Ember.computed.not('hasDirtyAttributes'),
-
+  /**
+   * The viewBox for an SVG element that displays only this instrument.
+   */
   viewBox: Ember.computed('xCoor', 'yCoor', function() {
     let x = this.get('xCoor');
     let y = this.get('yCoor');
@@ -115,6 +108,9 @@ export default DS.Model.extend({
     return `${x} ${y} ${this.get('width')} ${this.get('height')}`;
   }),
 
+  /**
+   * Calculate the three points of a triangle-shaped instrument.
+   */
   trianglePoints: Ember.computed('xCoor', 'yCoor', function() {
     const points = [];
     const xCoor = this.get('xCoor');
