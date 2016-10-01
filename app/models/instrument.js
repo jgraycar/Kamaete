@@ -42,7 +42,7 @@ export default DS.Model.extend({
    */
   xCoor: Ember.computed('x', 'template', 'centerX', 'shape', 'width', function() {
     let adjustment = 0;
-    if (!this.get('isCircle')) {
+    if (!this.get('isEllipse')) {
       adjustment = this.get('width') / 2;
     }
 
@@ -64,7 +64,7 @@ export default DS.Model.extend({
    */
   yCoor: Ember.computed('y', 'template', 'centerY', 'shape', 'height', function() {
     let adjustment = 0;
-    if (!this.get('isCircle')) {
+    if (!this.get('isEllipse')) {
       adjustment = this.get('height') / 2;
     }
 
@@ -90,7 +90,7 @@ export default DS.Model.extend({
     // they will point to it's center (other than circle's, most SVG elements
     // instead point to their top left corner). Undo that adjustment here so
     // that the rotation applies as expected.
-    if (!this.get('isCircle')) {
+    if (!this.get('isEllipse')) {
       pivotX += this.get('width') / 2;
       pivotY += this.get('height') / 2;
     }
