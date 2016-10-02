@@ -1,19 +1,22 @@
 .instrument-card {
+  display: flex;
   height: 100px;
   margin-bottom: 30px;
   width: 100%;
 
   .instrument-image {
-    display: inline-block;
-    height: 100%;
-    overflow: hidden;
-    width: 100px;
+    svg {
+      height: 100px;
+      width: 100px;
+    }
   }
 
   .card-content {
-    display: inline-block;
+    flex: 1 auto;
     font-size: 20px;
-    height: 100%;
-    vertical-align: top;
+    overflow: hidden;
+    padding-top: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
