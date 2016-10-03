@@ -104,8 +104,17 @@ export default DS.Model.extend({
   viewBox: Ember.computed('xCoor', 'yCoor', function() {
     let x = this.get('xCoor');
     let y = this.get('yCoor');
+    let width = this.get('width');
+    let height = this.get('height');
 
-    return `${x} ${y} ${this.get('width')} ${this.get('height')}`;
+    if (this.get('isEllipse')) {
+      x -= width;
+      y -= height;
+      height *= 2;
+      width *= 2;
+    }
+
+    return `${x} ${y} ${width} ${height}`;
   }),
 
   /**

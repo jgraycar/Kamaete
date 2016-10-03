@@ -5,9 +5,14 @@
   width: 100%;
 
   .instrument-image {
+    background: $gray-lighter;
+    height: 100px;
+    padding: 20px;
+    width: 100px;
+
     svg {
-      height: 100px;
-      width: 100px;
+      height: 60px;
+      width: 60px;
     }
   }
 
