@@ -12,5 +12,9 @@
         transform={{instrument.rotationTransformation}}
         y={{instrument.yCoor}} fill={{instrument.color}} />
 {{else if instrument.isCross}}
-  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+  {{#each instrument.lines as |line|}}
+    <line x1={{line.x1}} x2={{line.x2}} y1={{line.y1}} y2={{line.y2}}
+          transform={{instrument.rotationTransformation}}
+          stroke={{instrument.color}} stroke-width="5" />
+  {{/each}}
 {{/if}}

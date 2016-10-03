@@ -130,4 +130,29 @@ export default DS.Model.extend({
     points.push(`${xCoor + (this.get('width') / 2)} ${yCoor + this.get('height')}`);
     return points.join(',');
   }),
+
+  /**
+   * Calculate the points of the two lines for a cross-shaped instrument.
+   */
+  lines: Ember.computed('xCoor', 'yCoor', 'height', 'width', function() {
+    const xCoor = this.get('xCoor');
+    const yCoor = this.get('yCoor');
+    const width = this.get('width');
+    const height = this.get('height');
+
+    const lines = [];
+    lines.push({
+      x1: xCoor,
+      x2: xCoor + width,
+      y1: yCoor + height,
+      y2: yCoor,
+    });
+    lines.push({
+      x1: xCoor + width,
+      x2: xCoor,
+      y1: yCoor + height,
+      y2: yCoor,
+    });
+    return lines;
+  }),
 });
