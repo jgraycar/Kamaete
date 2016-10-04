@@ -40,20 +40,32 @@ export default DS.Model.extend({
    * positioned at their top-left corner. Adjust the x-coordinate so that
    * no matter the instrument's shape, xCoor will point to it's center.
    */
-  xCoor: Ember.computed('x', 'template', 'centerX', 'shape', 'width', function() {
-    let adjustment = 0;
-    if (!this.get('isEllipse')) {
-      adjustment = this.get('width') / 2;
-    }
+  xCoor: Ember.computed('x', 'template', 'centerX', 'shape', 'width', {
+    get() {
+      let adjustment = 0;
+      if (!this.get('isEllipse')) {
+        adjustment = this.get('width') / 2;
+      }
 
-    if (this.get('template')) {
-      // Templates are not required to have a defined X attribute. Since they
-      // are only shown when being edited, set their x-coordinate such that
-      // they are centered.
-      return 400 - adjustment;
-    }
+      if (this.get('template')) {
+        // Templates are not required to have a defined X attribute. Since they
+        // are only shown when being edited, set their x-coordinate such that
+        // they are centered.
+        return 400 - adjustment;
+      }
 
-    return this.get('x') - adjustment;
+      return this.get('x') - adjustment;
+    },
+
+    set(key, value) {
+      let adjustment = 0;
+      if (!this.get('isEllipse')) {
+        adjustment = this.get('width') / 2;
+      }
+
+      this.set('x', value + adjustment);
+      return value;
+    },
   }),
 
   /**
@@ -62,20 +74,32 @@ export default DS.Model.extend({
    * positioned at their top-left corner. Adjust the y-coordinate so that
    * no matter the instrument's shape, yCoor will point to it's center.
    */
-  yCoor: Ember.computed('y', 'template', 'centerY', 'shape', 'height', function() {
-    let adjustment = 0;
-    if (!this.get('isEllipse')) {
-      adjustment = this.get('height') / 2;
-    }
+  yCoor: Ember.computed('y', 'template', 'centerY', 'shape', 'height', {
+    get() {
+      let adjustment = 0;
+      if (!this.get('isEllipse')) {
+        adjustment = this.get('height') / 2;
+      }
 
-    if (this.get('template')) {
-      // Templates are not required to have a defined Y attribute. Since they
-      // are only shown when being edited, set their y-coordinate such that
-      // they are centered.
-      return 225 - adjustment;
-    }
+      if (this.get('template')) {
+        // Templates are not required to have a defined Y attribute. Since they
+        // are only shown when being edited, set their y-coordinate such that
+        // they are centered.
+        return 225 - adjustment;
+      }
 
-    return this.get('y') - adjustment;
+      return this.get('y') - adjustment;
+    },
+
+    set(key, value) {
+      let adjustment = 0;
+      if (!this.get('isEllipse')) {
+        adjustment = this.get('height') / 2;
+      }
+
+      this.set('y', value + adjustment);
+      return value;
+    },
   }),
 
   /**
