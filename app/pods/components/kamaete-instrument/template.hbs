@@ -1,20 +1,22 @@
-{{#if instrument.isEllipse}}
-  <ellipse rx={{instrument.width}} ry={{instrument.height}} cx={{instrument.xCoor}}
-           transform={{instrument.rotationTransformation}}
-           cy={{instrument.yCoor}} fill={{instrument.color}} />
-{{else if instrument.isSquare}}
-  <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
-{{else if instrument.isTriangle}}
-  <polygon points={{instrument.trianglePoints}} fill={{instrument.color}}
-      transform={{instrument.rotationTransformation}} />
-{{else if instrument.isRectangle}}
-  <rect width={{instrument.width}} height={{instrument.height}} x={{instrument.xCoor}}
-        transform={{instrument.rotationTransformation}}
-        y={{instrument.yCoor}} fill={{instrument.color}} />
-{{else if instrument.isCross}}
-  {{#each instrument.lines as |line|}}
-    <line x1={{line.x1}} x2={{line.x2}} y1={{line.y1}} y2={{line.y2}}
+<a xlink:href="#">
+  {{#if instrument.isEllipse}}
+    <ellipse rx={{instrument.width}} ry={{instrument.height}} cx={{instrument.xCoor}}
+             transform={{instrument.rotationTransformation}}
+             cy={{instrument.yCoor}} fill={{instrument.color}} />
+  {{else if instrument.isSquare}}
+    <rect width="10" height="10" x="0" y="0" fill="#d2232c" />
+  {{else if instrument.isTriangle}}
+    <polygon points={{instrument.trianglePoints}} fill={{instrument.color}}
+        transform={{instrument.rotationTransformation}} />
+  {{else if instrument.isRectangle}}
+    <rect width={{instrument.width}} height={{instrument.height}} x={{instrument.xCoor}}
           transform={{instrument.rotationTransformation}}
-          stroke={{instrument.color}} stroke-width="5" />
-  {{/each}}
-{{/if}}
+          y={{instrument.yCoor}} fill={{instrument.color}} />
+  {{else if instrument.isCross}}
+    {{#each instrument.lines as |line|}}
+      <line x1={{line.x1}} x2={{line.x2}} y1={{line.y1}} y2={{line.y2}}
+            transform={{instrument.rotationTransformation}}
+            stroke={{instrument.color}} stroke-width="5" />
+    {{/each}}
+  {{/if}}
+</a>
