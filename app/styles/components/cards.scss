@@ -1,28 +1,48 @@
 .instrument-card {
   display: flex;
-  height: 100px;
-  margin-bottom: 30px;
+  height: 70px;
+  margin-bottom: 20px;
   width: 100%;
 
   .instrument-image {
     background: $gray-lighter;
-    height: 100px;
-    padding: 20px;
-    width: 100px;
+    height: 70px;
+    padding: 15px;
+    width: 70px;
 
     svg {
-      height: 60px;
-      width: 60px;
+      height: 40px;
+      width: 40px;
     }
   }
 
   .card-content {
+    align-items: center;
+    display: flex;
     flex: 1 auto;
     font-size: 20px;
     overflow: hidden;
     padding-top: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    a {
+      flex: 1 auto;
+    }
+  }
+
+  paper-icon-button {
+    display: none;
+    transition: all .3s ease;
+
+
+    &:hover {
+      color: $btn-danger-bg;
+    }
+  }
+
+  &:hover paper-icon-button {
+    display: initial;
   }
 }
 
@@ -36,6 +56,28 @@
   }
 
   .card-content {
+    align-items: center;
+    display: flex;
     font-size: 20px;
+
+    a {
+      flex: 1 auto;
+    }
+  }
+
+  paper-icon-button {
+    display: none;
+    height: 20px;
+    padding: 0;
+    transition: all .3s ease;
+    width: 20px;
+
+    &:hover {
+      color: $btn-danger-bg;
+    }
+  }
+
+  &:hover paper-icon-button {
+    display: initial;
   }
 }

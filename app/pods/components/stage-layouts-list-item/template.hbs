@@ -8,5 +8,6 @@
     {{#link-to 'layouts.show' layout class='card-header'}}
       {{layout.name}}
     {{/link-to}}
+    <paper-icon-button onclick={{action 'deleteLayout' layout}} icon="clear"></paper-icon-button>
   </div>
 </paper-card>
