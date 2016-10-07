@@ -1,7 +1,3 @@
 {{#each sortedStageLayouts as |stageLayout|}}
-  <li>
-    {{#link-to 'layouts.show' stageLayout}}
-      {{stageLayout.name}}
-    {{/link-to}}
-  </li>
+  {{stage-layouts-list-item layout=stageLayout}}
 {{/each}}

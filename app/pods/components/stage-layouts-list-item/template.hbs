@@ -1,0 +1,12 @@
+<paper-card class="layout-card">
+  <div class="layout-image">
+    {{#link-to 'layouts.show' layout class='card-header'}}
+      {{kamaete-stage instruments=layout.instruments elevation=0}}
+    {{/link-to}}
+  </div>
+  <div class="card-content">
+    {{#link-to 'layouts.show' layout class='card-header'}}
+      {{layout.name}}
+    {{/link-to}}
+  </div>
+</paper-card>
