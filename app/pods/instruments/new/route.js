@@ -9,5 +9,11 @@ export default Ember.Route.extend({
     instrumentCreated(instrument) {
       this.transitionTo('instruments.show', instrument);
     },
+
+    willTransition() {
+      if (this.currentModel.get('hasDirtyAttributes')) {
+        this.currentModel.rollbackAttributes();
+      }
+    },
   },
 });
