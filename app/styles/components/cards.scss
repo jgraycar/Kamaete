@@ -21,18 +21,19 @@
     display: flex;
     flex: 1 auto;
     font-size: 20px;
-    overflow: hidden;
     padding-top: 10px;
-    text-overflow: ellipsis;
     white-space: nowrap;
 
     a {
       flex: 1 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 0;
     }
   }
 
   paper-icon-button {
-    display: none;
+    opacity: 0;
     transition: all .3s ease;
 
 
@@ -42,7 +43,7 @@
   }
 
   &:hover paper-icon-button {
-    display: initial;
+    opacity: initial;
   }
 }
 
