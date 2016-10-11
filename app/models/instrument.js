@@ -18,21 +18,13 @@ export default DS.Model.extend({
 
   isNotDirty: Ember.computed.not('hasDirtyAttributes'),
 
-  isEllipse: Ember.computed('shape', function() {
-    return this.get('shape') === 'ellipse';
-  }),
+  isEllipse: Ember.computed.equal('shape', 'ellipse'),
 
-  isRectangle: Ember.computed('shape', function() {
-    return this.get('shape') === 'rectangle';
-  }),
+  isRectangle: Ember.computed.equal('shape', 'rectangle'),
 
-  isTriangle: Ember.computed('shape', function() {
-    return this.get('shape') === 'triangle';
-  }),
+  isTriangle: Ember.computed.equal('shape', 'triangle'),
 
-  isCross: Ember.computed('shape', function() {
-    return this.get('shape') === 'cross';
-  }),
+  isCross: Ember.computed.equal('shape', 'cross'),
 
   /**
    * Returns the x-coordinate to use for displaying the instrument on the
