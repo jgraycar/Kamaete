@@ -1,9 +1,11 @@
 <paper-card class="instrument-card">
-  <div class="instrument-image">
-    <svg viewBox={{instrument.viewBox}}>
-      {{kamaete-instrument instrument=instrument class="template"}}
-    </svg>
-  </div>
+  {{#link-to 'instruments.show' instrument}}
+    <div class="instrument-image">
+      <svg viewBox={{instrument.viewBox}}>
+        {{kamaete-instrument instrument=instrument class="template"}}
+      </svg>
+    </div>
+  {{/link-to}}
   <div class="card-content">
     {{#link-to 'instruments.show' instrument class='card-header'}}
       {{instrument.kind}}

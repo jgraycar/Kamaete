@@ -1,7 +1,8 @@
 <div class="header-input col-xs-12">
   <paper-input-container auto-validate always-float-label>
     <label>Instrument Type</label>
-    {{input is="iron-input" value=model.kind required=true}}
+    {{input is="iron-input" value=model.kind required=true
+            placeholder="The name of this instrument"}}
     <paper-input-error>Please enter the name of this type of instrument.</paper-input-error>
   </paper-input-container>
 </div>
