@@ -19,7 +19,7 @@ export default Ember.Component.extend({
         member.save().then(() => {
         },
 
-        (xhr) => {
+        () => {
           // TODO: display validation errors in xhr.errors
           // Need to make server send validation errors in JSON-API format;
         });
