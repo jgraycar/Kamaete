@@ -17,79 +17,67 @@ export default DS.Model.extend({
   template: DS.attr('boolean', { defaultValue: false }),
 
   isNotDirty: Ember.computed.not('hasDirtyAttributes'),
-
   isEllipse: Ember.computed.equal('shape', 'ellipse'),
-
   isRectangle: Ember.computed.equal('shape', 'rectangle'),
-
   isTriangle: Ember.computed.equal('shape', 'triangle'),
-
   isCross: Ember.computed.equal('shape', 'cross'),
 
   /**
    * Returns the x-coordinate to use for displaying the instrument on the
-   * stage SVG element. Most SVG elements (other than circles) are
-   * positioned at their top-left corner. Adjust the x-coordinate so that
-   * no matter the instrument's shape, xCoor will point to it's center.
+   * stage SVG element.
    */
   xCoor: Ember.computed('x', 'template', 'centerX', 'shape', 'width', {
     get() {
-      let adjustment = 0;
-      if (!this.get('isEllipse')) {
-        adjustment = this.get('width') / 2;
-      }
-
       if (this.get('template')) {
+        let adjustment = 0;
+        if (!this.get('isEllipse')) {
+          // Most SVG elements (other than circles) are positioned at their
+          // top-left corner. Adjust the x-coordinate so that no matter the
+          // instrument's shape, xCoor will point to it's center.
+          adjustment = this.get('width') / 2;
+        }
+
         // Templates are not required to have a defined X attribute. Since they
         // are only shown when being edited, set their x-coordinate such that
         // they are centered.
         return 400 - adjustment;
       }
 
-      return this.get('x') - adjustment;
+      return this.get('x');
     },
 
     set(key, value) {
-      let adjustment = 0;
-      if (!this.get('isEllipse')) {
-        adjustment = this.get('width') / 2;
-      }
-
-      this.set('x', value + adjustment);
+      this.set('x', value);
       return value;
     },
   }),
 
   /**
    * Returns the y-coordinate to use for displaying the instrument on the
-   * stage SVG element. Most SVG elements (other than circles) are
-   * positioned at their top-left corner. Adjust the y-coordinate so that
-   * no matter the instrument's shape, yCoor will point to it's center.
+   * stage SVG element.
    */
   yCoor: Ember.computed('y', 'template', 'centerY', 'shape', 'height', {
     get() {
-      let adjustment = 0;
-      if (!this.get('isEllipse')) {
-        adjustment = this.get('height') / 2;
-      }
-
       if (this.get('template')) {
+        let adjustment = 0;
+        if (!this.get('isEllipse')) {
+          // Most SVG elements (other than circles) are positioned at their
+          // top-left corner. Adjust the y-coordinate so that no matter the
+          // instrument's shape, yCoor will point to it's center.
+          adjustment = this.get('height') / 2;
+        }
+
         // Templates are not required to have a defined Y attribute. Since they
         // are only shown when being edited, set their y-coordinate such that
         // they are centered.
         return 225 - adjustment;
       }
 
-      return this.get('y') - adjustment;
+      return this.get('y');
     },
 
     set(key, value) {
-      let adjustment = 0;
-      if (!this.get('isEllipse')) {
-        adjustment = this.get('height') / 2;
-      }
-
-      this.set('y', value + adjustment);
+      this.set('y', value);
       return value;
     },
   }),
@@ -102,10 +90,9 @@ export default DS.Model.extend({
     let pivotX = this.get('xCoor');
     let pivotY = this.get('yCoor');
 
-    // xCoor and yCoor are adjusted so that no matter the instrument's shape,
-    // they will point to it's center (other than circle's, most SVG elements
-    // instead point to their top left corner). Undo that adjustment here so
-    // that the rotation applies as expected.
+    // Other than circle's, most SVG elements point to their top left corner
+    // instead of their center. Adjust the x & y coordinates of the rotation
+    // so that they spin in place.
     if (!this.get('isEllipse')) {
       pivotX += this.get('width') / 2;
       pivotY += this.get('height') / 2;

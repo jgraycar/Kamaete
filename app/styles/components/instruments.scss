@@ -1,5 +1,7 @@
 .instrument {
-  &:not(.template) a:focus {
+  cursor: pointer;
+
+  &:not(.template) .selected {
     stroke: $instrument-focus-color;
     stroke-width: 3px;
   }

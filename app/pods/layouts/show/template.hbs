@@ -1,5 +1,10 @@
-<div class="page-header">
-  <h1>{{model.name}}</h1>
+<div class="header-input col-xs-12">
+  <paper-input-container auto-validate always-float-label>
+    <label>Layout Title</label>
+    {{input is="iron-input" value=model.name required=true
+            placeholder="The name of this instrument"}}
+    <paper-input-error>Please enter the name of this stage layout.</paper-input-error>
+  </paper-input-container>
 </div>
 
 <div class="col-lg-3 col-sm-12 col-lg-push-9">
@@ -7,4 +12,20 @@
 
 <div class="col-lg-9 col-sm-12 col-lg-pull-3">
   {{kamaete-stage instruments=model.instruments}}
+</div>
+
+<div class="col-sm-12">
+  <paper-button onclick={{action 'saveChanges'}} disabled={{model.isNotDirty}}
+      class="visible-lg-inline btn-save">
+    <iron-icon icon="done"></iron-icon>Save Changes</paper-button>
+
+  <paper-button onclick={{action 'undoChanges'}} disabled={{model.isNotDirty}}
+      class="visible-lg-inline btn-undo">
+    <iron-icon icon="clear"></iron-icon>Undo Changes</paper-button>
+
+  <paper-button onclick={{action 'saveChanges'}} disabled={{model.isNotDirty}}
+      class="hidden-lg btn-save"><iron-icon icon="done"></iron-icon>Save</paper-button>
+
+  <paper-button onclick={{action 'undoChanges'}} disabled={{model.isNotDirty}}
+      class="hidden-lg btn-undo"><iron-icon icon="clear"></iron-icon>Undo</paper-button>
 </div>
